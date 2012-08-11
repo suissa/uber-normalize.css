@@ -11,6 +11,25 @@
 /*	Checkbox Variables 	*/
 @checkbox-content: "✔";
 
+/*	Mixins	*/
+.style-slider-thumb (@w: 8px, @h: 18px, @br: 8px, 
+					@b: 1px solid rgba( 0,0,0,0.3 ), 
+					@bs: 1px 1px 2px rgba( 0,0,0,0.2 ), 
+					@bc: #999, 
+					@bi: -webkit-linear-gradient( #999, #666 )) 
+{/* removendo a aparência padrão (Chrome e Safari) */
+	    -webkit-appearance: none;
+	    /* estilização */
+	    width: @w;
+	    height: @h;
+	    border-radius: @br;
+	    border: @b;
+	    box-shadow: @bs;
+	    background-color: @bc;
+	    background-image: @bi;
+}
+
+/*	Styles	*/
 section{
 	width: 60%;
 	margin: 0 auto;
@@ -55,6 +74,21 @@ section{
 	    left: 2px;
 	}
 
+	/*	Selct		*/
+	select.stylized {
+	    width: 120px;
+	    height: 12px;
+	    border-radius: 3px;
+	}
+	/* when is checked */
+	select.stylized:selected {
+	    font-size: 15px;
+	    color: rgba( 0,0,0,0.5 );
+	    position: relative;
+	    top: -6px;
+	    left: 2px;
+	}
+
 	/*	Range		*/
 	input[type=range].stylized-1 {
 		-webkit-appearance: none;
@@ -68,16 +102,7 @@ section{
 	    background-image: @slider-back-image;
 	}
 	input[type=range].stylized-2::-webkit-slider-thumb {
-	    /* removendo a aparência padrão (Chrome e Safari) */
-	    -webkit-appearance: none;
-	    /* estilização */
-	    width: 8px;
-	    height: 18px;
-	    border-radius: 8px;
-	    border: 1px solid rgba( 0,0,0,0.3 );
-	    box-shadow: 1px 1px 2px rgba( 0,0,0,0.2 );
-	    background-color: #999;
-	    background-image: -webkit-linear-gradient( #999, #666 );
+	    .style-slider-thumb;
 	}
 	input[type=range].stylized-2:focus {
 	    outline: none;
@@ -96,4 +121,10 @@ section{
 	input[type=range].stylized-2::-webkit-slider-thumb:active {
 	    background-image: none;
 	    background-color: #555;
+	}
+
+	div{
+		appearance:button;
+		-moz-appearance:button; /* Firefox */
+		-webkit-appearance:button; /* Safari and Chrome */
 	}
