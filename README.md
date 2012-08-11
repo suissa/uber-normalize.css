@@ -8,13 +8,11 @@ Create a uber-normalize for html elements using LESS for easy customization
 * [-moz-appearance](https://developer.mozilla.org/en-US/docs/CSS/-moz-appearance "-moz-appearance")
 * [-webkit-appearance](http://css-infos.net/property/-webkit-appearance "-webkit-appearance")
 
-`div
-{
-appearance:button;
--moz-appearance:button; /* Firefox */
--webkit-appearance:button; /* Safari and Chrome */
-}
-`
+`div{
+	appearance:button;
+	-moz-appearance:button; /* Firefox */
+	-webkit-appearance:button; /* Safari and Chrome */
+	}`
 
 
 ##Shadow Dom
