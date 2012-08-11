@@ -12,23 +12,31 @@
 @checkbox-content: "✔";
 
 /*	Mixins	*/
-.style-slider-thumb (@w: 8px, @h: 18px, @br: 8px, 
-					@b: 1px solid rgba( 0,0,0,0.3 ), 
-					@bs: 1px 1px 2px rgba( 0,0,0,0.2 ), 
-					@bc: #999, 
-					@bi: -webkit-linear-gradient( #999, #666 )) 
+.style-slider-thumb (@width: 8px, @height: 18px, @border-radius: 8px, 
+					@border: 1px solid rgba( 0,0,0,0.3 ), 
+					@box-shadow: 1px 1px 2px rgba( 0,0,0,0.2 ), 
+					@background-color: #999, 
+					@background-image: -webkit-linear-gradient( #999, #666 )) 
 {/* removendo a aparência padrão (Chrome e Safari) */
-	    -webkit-appearance: none;
-	    /* estilização */
-	    width: @w;
-	    height: @h;
-	    border-radius: @br;
-	    border: @b;
-	    box-shadow: @bs;
-	    background-color: @bc;
-	    background-image: @bi;
+    -webkit-appearance: none;
+    /* estilização */
+    width: @width;
+    height: @height;
+    border-radius: @border-radius;
+    border: @border;
+    box-shadow: @box-shadow;
+    background-color: @background-color;
+    background-image: @background-image;
 }
-
+.style-radio-checked (@content: @radio-content, @font-size: 15px, @color: #333, @top: -5px, @left: 1px)
+{
+    content: @content;
+    font-size: @font-size;
+    color: @color;
+    position: relative;
+    top: @top;
+    left: @left;
+}
 /*	Styles	*/
 section{
 	width: 60%;
@@ -49,12 +57,7 @@ section{
 	}
 	/* when is checked */
 	input[type=radio].stylized:checked:before {
-	    content: @radio-content;
-	    font-size: 15px;
-	    color: #333;
-	    position: relative;
-	    top: -5px;
-	    left: 1px;
+		.style-radio-checked;
 	}
 
 	/*	Checkbox		*/
